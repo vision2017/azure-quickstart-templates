@@ -26,6 +26,15 @@
       },
       "defaultValue": 128
     },
+    "vmDiskCount": {
+      "type": "int",
+      "minValue": 1,
+      "maxValue": 32,
+      "metadata": {
+        "description": "Number of data disks on eachSFCI VM (Min=2, Max=32). Ensure that the VM size you've selected will support this number of data disks."
+      },
+      "defaultValue": 1
+    },
     "existingDomainName": {
       "type": "string",
       "metadata": {
@@ -146,7 +155,9 @@
           "vmDiskSize": {
             "value": "[parameters('vmDiskSize')]"
           },
-         
+          "vmDiskCount": {
+            "value": "[parameters('vmDiskCount')]"
+          },
           "clusterIP": {
             "value": "[parameters('clusterIP')]"
           },
