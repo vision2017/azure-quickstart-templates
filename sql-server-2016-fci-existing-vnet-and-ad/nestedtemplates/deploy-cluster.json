@@ -76,6 +76,14 @@
         "description": "Size of each data disk in GB on each VM (Min=128, Max=1023)"
       }
     },
+    "vmDiskCount": {
+      "type": "int",
+      "minValue": 2,
+      "maxValue": 32,
+      "metadata": {
+        "description": "Number of data disks on each VM (Min=2, Max=32). Ensure that the VM size you've selected will support this number of data disks."
+      }
+    },
     "imagePublisher": {
       "type": "string",
       "defaultValue": "MicrosoftSQLServer"
@@ -281,7 +289,10 @@
           },
           "vmSize": {
             "value": "[parameters('vmSize')]"
-          },          
+          },
+          "vmDiskCount": {
+            "value": "[parameters('vmDiskCount')]"
+          },
           "vmDiskSize": {
             "value": "[parameters('vmDiskSize')]"
           },

@@ -6,12 +6,14 @@
       "value": "GEN-UNIQUE-8"
     },
     "vmSize": {
-      "value": "Standard_DS2_v2"
+      "value": "Standard_D2s_v3"
     },
     "vmDiskSize": {
       "value": 127
     },
-    
+    "vmDiskCount": {
+      "value": 2
+    },
     "existingDomainName": {
       "value": "contoso.com"
     },
