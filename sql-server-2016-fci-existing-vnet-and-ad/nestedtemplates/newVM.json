@@ -60,34 +60,27 @@
                     "adminUsername": "[parameters('adminUsername')]",
                     "adminPassword": "[parameters('adminPassword')]"
                 },
-                "storageProfile": {
-                    "imageReference": {
-                        "publisher": "[parameters('imagePublisher')]",
-                        "offer": "[parameters('imageOffer')]",
-                        "sku": "[parameters('imageSku')]",
-                        "version": "[parameters('imageVersion')]"
-                    },
-                    "osDisk": {
-                        "name": "[concat(parameters('vmName'),'-osdisk')]",
-                        "caching": "ReadWrite",
-                        "createOption": "FromImage",
-                        "managedDisk": {
-                            "storageAccountType": "Premium_LRS"
-                        }
-                    },
-                    "copy": [
-                        {
-                            "name": "dataDisks",
-                            "count": "[parameters('vmDiskCount')]",
-                            "input": {
-                                "diskSizeGB": "[parameters('vmDiskSize')]",
-                                "lun": "[copyIndex('dataDisks')]",
-                                "createOption": "Empty",
-                                "caching":"[parameters('diskCaching')]"
-                            }
-                        }
-                    ]
+              "storageProfile": {
+                "imageReference": {
+                  "publisher": "[parameters('imagePublisher')]",
+                  "offer": "[parameters('imageOffer')]",
+                  "sku": "[parameters('imageSku')]",
+                  "version": "[parameters('imageVersion')]"
                 },
+                "osDisk": {
+                  "name": "[concat(parameters('vmName'),'-osdisk')]",
+                  "caching": "ReadWrite",
+                  "createOption": "FromImage",
+                  "managedDisk": {
+                    "storageAccountType": "Premium_LRS"
+                  }
+                },
+                "dataDisks": {
+                  "diskSizeGB": "[parameters('vmDiskSize')]",
+                  "caching": "[parameters('diskCaching')]",
+                  "createOption": "Empty"                 
+                }                
+              },
                 "networkProfile": {
                     "networkInterfaces": [
                         {
