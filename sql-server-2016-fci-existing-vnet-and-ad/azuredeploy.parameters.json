@@ -11,9 +11,7 @@
     "vmDiskSize": {
       "value": 127
     },
-    "vmDiskCount": {
-      "value": 1
-    },
+    
     "existingDomainName": {
       "value": "contoso.com"
     },

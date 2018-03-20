@@ -11,9 +11,7 @@
         "vmSize": {
             "type": "string"
         },
-        "vmDiskCount": {
-            "type": "int"
-        },
+      
         "vmDiskSize": {
             "type": "int"
         },
